@@ -1,0 +1,46 @@
+{
+  "name": "frontmatter-translate",
+  "version": "0.1.0",
+  "description": "i18n for your frontmatter and content files",
+  "type": "module",
+  "bin": "index.mjs",
+  "scripts": {
+    "build": "tsc",
+    "run": "npm run build && node ./index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeoLegends/frontmatter-translate.git"
+  },
+  "keywords": [
+    "i18n",
+    "translate",
+    "frontmatter",
+    "markdown",
+    "google-translate"
+  ],
+  "author": "Moritz Gunz <moritz.gunz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NeoLegends/frontmatter-translate/issues"
+  },
+  "homepage": "https://github.com/NeoLegends/frontmatter-translate#readme",
+  "dependencies": {
+    "@google-cloud/translate": "^7.2.2",
+    "chalk": "^5.3",
+    "enquirer": "^2.3.6",
+    "gray-matter": "^4.0.3",
+    "jsonpath": "^1.1.1",
+    "lodash": "^4.17.21",
+    "tslib": "^2.6.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/jsonpath": "^0.2.0",
+    "@types/lodash": "^4.14.195",
+    "@types/node": "^20.4.4",
+    "@types/yargs": "^17.0.24",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  }
+}
