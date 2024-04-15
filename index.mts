@@ -81,7 +81,10 @@ const translate = async (
   const sourceLanguage = getInputLanguage(inputMatterFile);
   const [keys, inputMatter] = await Promise.all([
     readFile(keyFile, { encoding: "utf-8" }).then((contents) =>
-      contents.split("\n")
+      contents
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line)
     ),
     readFile(inputMatterFile, { encoding: "utf-8" }).then((contents) =>
       matter(contents)
@@ -93,11 +96,18 @@ const translate = async (
   );
   for (const language of targetLanguages) {
     const [[translatedKeys], [translatedBody]] = await Promise.all([
-      translator.translate(toTranslate, { from: sourceLanguage, to: language }),
-      translator.translate(inputMatter.content, {
-        from: sourceLanguage,
-        to: language,
-      }),
+      toTranslate.length > 0
+        ? translator.translate(toTranslate, {
+            from: sourceLanguage,
+            to: language,
+          })
+        : [[]],
+      inputMatter.content
+        ? translator.translate(inputMatter.content, {
+            from: sourceLanguage,
+            to: language,
+          })
+        : "",
     ]);
 
     if (keys.length !== translatedKeys.length) {
