@@ -1,6 +1,6 @@
 {
   "name": "frontmatter-translate",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "i18n for your frontmatter and content files",
   "type": "module",
   "bin": "index.mjs",

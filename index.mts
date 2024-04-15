@@ -102,7 +102,7 @@ const translate = async (
             to: language,
           })
         : [[]],
-      inputMatter.content
+      inputMatter?.content?.trim()
         ? translator.translate(inputMatter.content, {
             from: sourceLanguage,
             to: language,
